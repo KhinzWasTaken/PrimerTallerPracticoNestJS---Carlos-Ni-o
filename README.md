@@ -1,98 +1,41 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+## **Primer Taller Practico Nest JS**
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+**Realizado por:** Carlos Niño.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+**Fecha:** Octubre 2025.  
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Descripción del proyecto
 
-## Project setup
+Este proyecto corresponde al **primer taller práctico del curso de Desarrollo en NestJS**.  
+El objetivo fue desarrollar un **cliente CRUD** que consuma datos de una **API pública de catálogo**, en este caso **The Rick and Morty API**, implementando operaciones simuladas de **creación, actualización y eliminación**, junto con paginación, uso de DTOs y manejo de errores.
 
-```bash
-$ npm install
-```
+---
 
-## Compile and run the project
+## Desarrollo del taller 
 
-```bash
-# development
-$ npm run start
+Se realizo la conexion con la api
+**The Rick and Morty API**  
+[https://rickandmortyapi.com](https://rickandmortyapi.com)
 
-# watch mode
-$ npm run start:dev
+En esta se pueden hacer consultas con metodos GET, sin embargo, no se pueden realizar peticiones Patch, Post o Delete, por lo cual dentro de el proyecto, se implementaron estos metodos de forma local, con el uso de un arreglo.
 
-# production mode
-$ npm run start:prod
-```
+A continuacion se muestran las pruebas de ejecion de los metodos en postman:
 
-## Run tests
+GetAll con paginación.
+<img width="1271" height="795" alt="{579A1E33-30D5-43E0-A868-101D3640E683}" src="https://github.com/user-attachments/assets/2b065912-8489-403c-bed2-9c91854109fe" />
 
-```bash
-# unit tests
-$ npm run test
+***Nota***: La api utilizada no emplea los parametros de limit y offset(skip), si no el parametro de page, por lo cual dentro de `rick-and-morty.service.ts` se hizo la coversion para que la api aceptara la solicitud con estos parametros.
 
-# e2e tests
-$ npm run test:e2e
+GetOne
+<img width="1279" height="797" alt="{2D1A3317-355F-4395-B153-E120E6BAA422}" src="https://github.com/user-attachments/assets/7d9762a1-4f1d-4079-b3fe-aa250a451b68" />
 
-# test coverage
-$ npm run test:cov
-```
+Post 
+<img width="1277" height="796" alt="{1596C4BF-51B5-412A-8038-A55DCF266F39}" src="https://github.com/user-attachments/assets/5de3c768-0707-4fda-9f81-5fc8ad272087" />
 
-## Deployment
+Patch
+<img width="1282" height="802" alt="{EFFB705A-4449-48EB-8987-6112DE01F08B}" src="https://github.com/user-attachments/assets/189227bd-77d9-4fd0-9ac3-898d6c6f1156" />
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Delete
+<img width="1281" height="802" alt="{E5647A65-7EF0-488E-89DE-FB78337BDF0E}" src="https://github.com/user-attachments/assets/903512c5-5614-4d8f-bec3-dcd88f898e12" />
